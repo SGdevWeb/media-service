@@ -1,6 +1,12 @@
 # media_service
 
+SERVER_PORT= 8040
 
+DB_HOST='localhost'
+DB_USER='postgres'
+DB_NAME=''
+DB_PASSWORD=''
+DB_PORT='5432'
 
 ## Getting started
 
