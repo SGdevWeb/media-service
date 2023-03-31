@@ -5,7 +5,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 require('dotenv').config();
 
-const routes = require("./route/likeRoute");
+const routes = require("./route/routes");
 const port = process.env.SERVER_PORT;
 
 app.use(cors());
