@@ -66,8 +66,7 @@ const putTechno = async (req, res) => {
    link: Joi.string().uri(),
    picture: Joi.string(),
    description: Joi.string(),
-   // size: Joi.number().required()
- }).min(1); // al menos uno de los campos es requerido
+ }).min(1); 
  
  const { error } = schema.validate(req.body);
  if (error) {
@@ -83,11 +82,26 @@ const putTechno = async (req, res) => {
  }
 };
 
+const deleteTechno_Controller = async (req, res) => {
+  const { techno_uuid } = req.body;
+
+  try {
+   
+ 
+    await  technoService.deleteTechno(techno_uuid);
+ 
+    res.status(204).end(); 
+  } catch (error) {
+    console.error(error); 
+    res.status(500).json({ result: 'error' });
+  }
+ };
+
 
 module.exports = {
     getTechno,
     getAllTechno,
     postAddtechno,
     putTechno,
-   
+   deleteTechno_Controller,
 };

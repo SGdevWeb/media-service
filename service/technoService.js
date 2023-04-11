@@ -33,10 +33,20 @@ const values = [techno.getUuid(), techno.getName(), techno.getLink(), techno.get
 await pool.query(query, values);
 };
 
+const deleteTechno = async (techno_uuid) => {
+  try {
+    const query = `DELETE FROM public.techno WHERE technologie_uuid = '${techno_uuid}';`;
+    const result = await pool.query(query);
+    console.log("ok");
+  } catch (error) {
+    console.error("Error al eliminar la tecnología:", error);
+  }
+};
 
  module.exports = {
   getTechno,
   getAllTechno,
   addTechno,
   updateTechno,
+  deleteTechno,
 };

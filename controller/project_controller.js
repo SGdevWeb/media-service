@@ -33,6 +33,40 @@ const postTechno_project = async (req, res) => {
 
 };
 
+
+const getTechno_project = async (req, res) => {
+ try {
+     const techno_project = await techno_project_Service.getTechno_project(req.params.uuid);
+     res.status(200).json(techno_project);
+ } catch (error) {
+     console.log(error)
+     res.status(500).json({result: "error"})
+ }
+};
+
+const deleteTechno_projectController = async (req, res) => {
+ const { proyect_uuid, techno_uuid } = req.body;
+ console.log('Entre la req', techno_uuid, proyect_uuid);
+ try {
+   const schema = Joi.object({
+     proyect_uuid: Joi.string().required(),
+     techno_uuid: Joi.string().required(),
+   });
+
+   await schema.validateAsync({ proyect_uuid, techno_uuid });
+
+   await techno_project_Service.deleteTechno_project(proyect_uuid, techno_uuid);
+
+   res.status(204).end(); 
+ } catch (error) {
+   console.error(error); 
+   res.status(500).json({ result: 'error' });
+ }
+};
+
+
 module.exports = {
  postTechno_project,
+ getTechno_project,
+ deleteTechno_projectController,
 };
