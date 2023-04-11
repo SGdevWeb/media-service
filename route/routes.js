@@ -17,5 +17,7 @@ router.post('/techno/add' , controller.techno.postAddtechno);
 
 router.put('/techno/put/:uuid' , controller.techno.putTechno);
 
+router.post('/techno_project', controller.techno_project.postTechno_project);
+
 
 module.exports = router;
