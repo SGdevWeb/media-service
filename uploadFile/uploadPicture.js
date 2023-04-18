@@ -7,6 +7,7 @@ const avatarUpload = multer({
                 cb(null, 'resources/pictures/userAvatars');
             },
             filename : (req, file, cb) => {
+                console.log(file)
                 const name = file.originalname.split('.');
                 cb(
                     null,
