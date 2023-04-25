@@ -1,5 +1,9 @@
-const avatar = require('./AvatarController')
+const avatar = require('./AvatarController');
+const techno = require('./technoController');
+const techno_project = require('./project_controller');
 
 module.exports = {
-    avatar
+    avatar,
+    techno,
+    techno_project,
 }
